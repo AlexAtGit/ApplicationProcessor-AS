@@ -40,9 +40,9 @@ namespace ULaw.ApplicationProcessor
 
         public string Process()
         {
-            if (DegreeGrade == DegreeGradeEnum.None || DegreeSubject == DegreeSubjectEnum.None || string.IsNullOrWhiteSpace(CourseCode)) throw new Exception("Unspecified subject, grade, or course code!");
+            if (DegreeGrade == DegreeGradeEnum.None || DegreeSubject == DegreeSubjectEnum.None || string.IsNullOrWhiteSpace(Faculty) || string.IsNullOrWhiteSpace(CourseCode)) throw new Exception("Unspecified subject, grade, faculty, or course code!");
             if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName)) throw new Exception("Unspecified student name");
-            if (!StartDate.HasValue) throw new Exception("Unspecified start date for teh course");
+            if (!StartDate.HasValue) throw new Exception("Unspecified start date for the course");
 
             var result = new StringBuilder("<html><body><h1>Your Recent Application from the University of Law</h1>");
 
@@ -78,8 +78,7 @@ namespace ULaw.ApplicationProcessor
             }
 
             result.Append("<br/><p>Yours sincerely,</p>");
-            result.Append("<p>The Admissions Team,</p>");
-            result.Append($"<p>Faculty of {Faculty},</p>");
+            result.Append($"<p>The Admissions Team, Faculty of {Faculty}</p>");
             result.Append("</body></html>");
 
             return result.ToString();
