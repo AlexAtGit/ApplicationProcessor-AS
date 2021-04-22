@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Reflection; 
+﻿using System.ComponentModel;
 
 namespace ULaw.ApplicationProcessor.Enums
 {
     public enum DegreeGradeEnum : int
     {
+        [DescriptionAttribute("None")]
+        None,
         [DescriptionAttribute("1st")]
         first,
         [DescriptionAttribute("2:1")]
@@ -20,6 +18,8 @@ namespace ULaw.ApplicationProcessor.Enums
     
     public enum DegreeSubjectEnum : int
     {
+        [DescriptionAttribute("None")]
+        None,
         [DescriptionAttribute("Law")]
         law,
         [DescriptionAttribute("Law and Business")]
@@ -29,5 +29,4 @@ namespace ULaw.ApplicationProcessor.Enums
         [DescriptionAttribute("English")]
         English
     }
-
 }
