@@ -6,8 +6,8 @@ namespace ULaw.ApplicationProcessor
 {
     public class Application
     {
-        private const string ContactEmail = "AdmissionsTeam@Ulaw.co.uk";
-        private const decimal _depositForLaw = 350.0m;
+        private const string ContactEmail = "AdmissionsTeam@Ulaw.co.uk"; // This email should be avialble from some "globals" file in case it is updated
+        private const decimal _depositForLaw = 350.0m; // We should get this from some method call as we do not want to hardcode figures and they are likely to increase with inflation
 
         public Application()
         {
@@ -43,6 +43,10 @@ namespace ULaw.ApplicationProcessor
             if (DegreeGrade == DegreeGradeEnum.None || DegreeSubject == DegreeSubjectEnum.None || string.IsNullOrWhiteSpace(Faculty) || string.IsNullOrWhiteSpace(CourseCode)) throw new Exception("Unspecified subject, grade, faculty, or course code!");
             if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName)) throw new Exception("Unspecified student name");
             if (!StartDate.HasValue) throw new Exception("Unspecified start date for the course");
+
+            // The letter should include some reference
+            // The letter does not mention that a VISA is required, where applicable.
+            // the DateOfBirth is unused!
 
             var result = new StringBuilder("<html><body><h1>Your Recent Application from the University of Law</h1>");
 

@@ -170,6 +170,11 @@ namespace ULaw.ApplicationProcessor.Tests
             string emailHtml = thisSubmission.Process();
             Assert.AreEqual(emailHtml, RejectionEmailForAnyThirdDegreeResult);
         }
+
+        // Suggestions
+        // 1. We need o test ToDescription() where no Description is provided.
+        // 2. Common output above, e.g. "Your Recent Application from the University of Law" and "Yours sincerely" could put is a separate strings and inserted accordingly
+        // 3. I would prefer specific string to be put in their relative tests if no referenced elsewhere
     }
-  
+
 }
